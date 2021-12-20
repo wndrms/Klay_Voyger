@@ -1,0 +1,68 @@
+@mixin text {
+    font-family: NotoSansKR;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+}
+.input-box-basic {
+    .input-text-area {
+        .input-title {
+            padding-bottom: 4px;
+            span {
+                @include text;
+                font-size: 16px;
+                letter-spacing: -0.5px;
+                color: #f6f2f2;
+            }
+        }
+        .input-detail {
+            padding-bottom: 16px;
+            span {
+                @include text;
+                font-size: 14px;
+                letter-spacing: -0.44px;
+                color: #3a97c7;
+            }
+        }
+    }
+    .input-box-area {
+        display: flex;
+        width: auto;
+        height: 3.011vw;
+        background-color: #3a97c7;
+        align-items: center;
+        input {
+            width: auto;
+            height: 1.5592vw;
+            margin: 0.7vw auto 0.7527vw 0.8607vw;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-family: NotoSansKR;
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.63px;
+            color: #556371;
+        }
+        .symbol {
+            margin-right: 0.8607vw;
+            font-family: NotoSansKR;
+            font-size: 20px;
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.63px;
+            text-align: right;
+            color: #556371;
+        }
+        .insert {
+            color: #24303c;
+        }
+
+    }
+}

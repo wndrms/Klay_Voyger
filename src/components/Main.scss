@@ -1,0 +1,543 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@mixin sub-title {
+    font-family: NotoSansKR;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.5px;
+    color: #f6f2f2;
+}
+@mixin sub-text {
+    font-family: NotoSansKR;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.44px;
+    color: #3a97c7;
+}
+
+@mixin notice-text {
+    font-family: NotoSansKR;
+    font-size: 12px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.38px;
+    color: #3a97c7;
+}
+
+main {
+    .main-page {
+        width: 100%;
+        height: calc(100vh - 120px);
+        .rocket-img-area {
+            width: 100%;
+            height: 8.5714vh;
+            align-items: center;
+            img {
+                height: 100%;
+                width: auto;
+                padding-left: 45.3125vw;
+            }
+        }
+        .main-title {
+            width: 100%;
+            max-width: 769px;
+            margin: auto;
+            margin-top: 1vh;
+            text-align: center;
+            .main-title-text {
+                width: 769px;
+                height: 80px;
+                font-family: NotoSansKR;
+                font-size: 56px;
+                font-weight: bold;
+                font-stretch: normal;
+                font-style: normal;
+                line-height: normal;
+                letter-spacing: -1.75px;
+                text-align: center;
+                color: #f5424e;
+
+                .main-title-text1 {
+                    letter-spacing: -1.72px;
+                    color: #f6f2f2;
+                }
+            }
+        }
+        .klay-data {
+            width: 100%;
+            max-width: 769px;
+            height: 45px;
+            margin: auto auto;
+            text-align: center;
+            .data-box {
+                display: flex;
+                text-align: center;
+                div {
+                    width:50%;
+                    display: flex;
+                    text-align: center;
+                }
+                .data-text {
+                    width: 100%;
+                    @include sub-title;
+                }
+            }
+        }
+        .main-card {
+            width: 100%;
+            height: auto;
+            height: 47.92vw;
+            position: absolute;
+            .card-area {
+                position:absolute;
+                display: flex;
+                width: 66.67%;
+                max-width: 1280px;
+                height: 32.26vw;
+                margin: 0 16.6667vw;
+                
+                z-index: 1;
+                .card {
+                    width: 50%;
+                    height: 100%;
+                    .card-box {
+                        width: 100%;
+                        height: 100%;
+                        margin: 174.3px 767px 150px 8px;
+                        border-radius: 8px;
+                        box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.5);
+                        background-color: #24303c;
+                        .box-tab {
+                            display: flex;
+                            width: 100%;
+                            height: 3.226vw;
+                            
+                            .box-menu {
+                                display: inline-block;
+                                position: relative;
+                                width: 50%;
+                                height: 100%;
+                                text-align: center;
+                                div {
+                                    width: auto;
+                                    display: inline-block;
+                                    position: absolute;
+                                }
+                                .menu-text {
+                                    @include sub-title;
+                                    line-height: 3.226vw;
+                                    color: #556371;
+                                }
+                                .selected {
+                                    color: #f6f2f2;
+                                }
+                                .selected:after {
+                                    animation:bounce-x-ltr;
+                                    position: absolute;
+                                    width: 100%;
+                                    height: 2px;
+                                    bottom: -5px;
+                                    left: 0;
+                                    content: "";
+                                    background:#f5424e;
+                                }
+                            }
+                        }
+                        .box-content {
+                            width: auto;
+                            height: 25.539vw;
+                            padding-left: 17.74%;
+                            padding-right: 17.74%;
+                            .sub-title {
+                                div {
+                                    padding-bottom: 4px;
+                                    .sub-title-text {
+                                        font-family: NotoSansKR;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.5px;
+                                        color: #f6f2f2;
+                                    }
+                                    .sub-title-description {
+                                        font-family: NotoSansKR;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.44px;
+                                        color: #3a97c7;
+                                    }
+                                }
+                            }
+                            .input-box {
+                                display: flex;
+                                width: auto;
+                                height: 3.011vw;
+                                background-color: #3a97c7;
+                                align-items: center;
+                                .user-name {
+                                    width: auto;
+                                    height: 1.5592vw;
+                                    margin: 0.7vw auto 0.7527vw 0.8607vw;
+                                    background-color: transparent;
+                                    border: none;
+                                    outline: none;
+                                    font-family: NotoSansKR;
+                                    font-size: 20px;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: normal;
+                                    letter-spacing: -0.63px;
+                                    color: #556371;
+                                }
+                                .TICKET {
+                                    margin-right: 0.8607vw;
+                                    font-family: NotoSansKR;
+                                    font-size: 20px;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: normal;
+                                    letter-spacing: -0.63px;
+                                    text-align: right;
+                                    color: #556371;
+                                }
+                            }
+                            .notice-box {
+                                padding-top: 4.5164vw;
+                                .notice-title {
+                                    height: 20px;
+                                    display: inline-block;
+                                    padding: 0;
+                                    .notice-text {
+                                        margin: 0;
+                                        font-family: NotoSansKR;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.5px;
+                                        color: #f6f2f2;
+                                    }
+                                    .help {
+                                        width: 20px;
+                                        height: 20px;
+                                    }
+                                }
+                                .buddies {
+                                    display: flex;
+                                    width: 100%;
+                                    padding: 28px 6px 0 6px;
+                                    .buddy {
+                                        width: 58px;
+                                        height: 92px;
+                                        margin-right: 52px;
+                                        .buddy-img {
+                                            width: 58px;
+                                            height: 60px;
+                                        }
+                                        .buddy-name {
+                                            text-align: center;
+                                            .buddy-name-text {
+                                                font-family: NotoSansKR;
+                                                font-size: 12px;
+                                                font-weight: normal;
+                                                font-stretch: normal;
+                                                font-style: normal;
+                                                line-height: normal;
+                                                letter-spacing: -0.38px;
+                                                color: #3a97c7;
+                                            }
+                                        }
+                                    }
+                                }
+                                .notice-text-detail {
+                                    font-family: NotoSansKR;
+                                    font-size: 14px;
+                                    font-weight: normal;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: 0.4839vw;
+                                    letter-spacing: -0.44px;
+                                    color: #3a97c7;
+                                }
+                            }
+                            .card-title {
+                                width: 100%;
+                                height: 28px;
+                                margin-top: 16px;
+                                text-align: center;
+                                .card-title-text {
+                                    font-family: NotoSansKR;
+                                    font-size: 20px;
+                                    font-weight: 500;
+                                    font-stretch: normal;
+                                    font-style: normal;
+                                    line-height: normal;
+                                    letter-spacing: -0.63px;
+                                    color: #f6f2f2;
+                                }
+                            }
+                            .account-info {
+                                margin-top: 12px;
+                                margin-bottom: 48px;
+                                .info-title {
+                                    span {
+                                        font-family: NotoSansKR;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.5px;
+                                        color: #f6f2f2;
+                                    }
+                                }
+                                .info-detail {
+                                    span {
+                                        font-family: NotoSansKR;
+                                        font-size: 14px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.44px;
+                                        color: #3a97c7;
+                                    }
+                                }
+                                .info-num {
+                                    width: 100%;
+                                    height: 3.011vw;
+                                    margin-top: 16px;
+                                    border: solid 1px #556371;
+                                    background-color: #24303c;
+                                    display: flex;
+                                    align-items: center;
+                                    .num-box {
+                                        margin: 0.7vw 0 0.7527vw 0.8607vw;
+                                        height: auto;
+                                        text-align: center;
+                                        span {
+                                            font-family: NotoSansKR;
+                                            font-size: 20px;
+                                            font-weight: 500;
+                                            font-stretch: normal;
+                                            font-style: normal;
+                                            line-height: normal;
+                                            letter-spacing: -0.63px;
+                                            color: #556371;
+                                        }
+                                    }
+                                    .symbol {
+                                        width: auto;
+                                        margin: 0.7vw 0.8607vw 0.7527vw auto;
+                                        text-align: center;
+                                        span {
+                                            font-family: NotoSansKR;
+                                            font-size: 20px;
+                                            font-weight: 500;
+                                            font-stretch: normal;
+                                            font-style: normal;
+                                            line-height: normal;
+                                            letter-spacing: -0.63px;
+                                            color: #556371;
+                                        }
+                                    }
+                                    .num-data {
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                            .popularity {
+                                width: 100%;
+                                margin-top: 12px;
+                                .popularity-title-box {
+                                    width: 100%;
+                                    display: flex;
+                                    align-items: center;
+                                    .popularity-title-text {
+                                        span {
+                                            @include sub-title;
+                                        }
+                                    }
+                                    .popularity-title-sub {
+                                        float:right;
+                                        span {
+                                            @include notice-text;
+                                        }
+                                    }
+                                }
+                                .popularity-data {
+                                    width: 100%;
+                                    margin-top: 12px;
+                                    display: flex;
+                                    .popularity-data-div {
+                                        margin-right: 37px;
+                                        .popularity-box-title {
+                                            span {
+                                                @include sub-text;
+                                            }
+                                        }
+                                        .popularity-data-num {
+                                            margin-top: 8px;
+                                            span {
+                                                font-family: NotoSansKR;
+                                                font-size: 14px;
+                                                font-weight: normal;
+                                                font-stretch: normal;
+                                                font-style: normal;
+                                                line-height: normal;
+                                                letter-spacing: -0.44px;
+                                                color: #f5424e;
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                            .box-data {
+                                height: 5.1616vw;
+                                padding-top: 2.688vw;
+                                padding-bottom: 0.5377vw;
+                                .box-data-title {
+                                    padding-bottom: 0.8607vw;
+                                    .box-data-text {
+                                        font-family: NotoSansKR;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.5px;
+                                        color: #f6f2f2;
+                                    }
+                                }
+                                .box-data-num {
+                                    width: 100%;
+                                    height: 3.011vw;
+                                    border: solid 1px #556371;
+                                    background-color: #24303c;
+                                    display: flex;
+                                    align-items: center;
+                                    .num-box {
+                                        margin: 0.7vw 0 0.7527vw 0.8607vw;
+                                        height: auto;
+                                        text-align: center;
+                                        span {
+                                            font-family: NotoSansKR;
+                                            font-size: 20px;
+                                            font-weight: 500;
+                                            font-stretch: normal;
+                                            font-style: normal;
+                                            line-height: normal;
+                                            letter-spacing: -0.63px;
+                                            color: #556371;
+                                        }
+                                    }
+                                    .KLAY-symbol {
+                                        width: auto;
+                                        margin: 0.7vw 0.8607vw 0.7527vw auto;
+                                        text-align: center;
+                                        span {
+                                            font-family: NotoSansKR;
+                                            font-size: 20px;
+                                            font-weight: 500;
+                                            font-stretch: normal;
+                                            font-style: normal;
+                                            line-height: normal;
+                                            letter-spacing: -0.63px;
+                                            color: #556371;
+                                        }
+                                    }
+                                    .num-data {
+                                        text-align: left;
+                                    }
+                                }
+                            }
+                            .information-box {
+                                padding-top: 2.8496vw;
+                                display: flex;
+                                align-items: center;
+                                .information-box-title {
+                                    text-align: center;
+                                    span {
+                                        font-family: NotoSansKR;
+                                        font-size: 16px;
+                                        font-weight: normal;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.5px;
+                                        color: #f6f2f2;
+                                    }
+                                }
+                                .symbol {
+                                    width: auto;
+                                    margin: 0.7vw 0.8607vw 0.7527vw auto;
+                                    text-align: center;
+                                    span {
+                                        font-family: NotoSansKR;
+                                        font-size: 20px;
+                                        font-weight: bold;
+                                        font-stretch: normal;
+                                        font-style: normal;
+                                        line-height: normal;
+                                        letter-spacing: -0.63px;
+                                        color: #556371;
+                                    }
+                                }
+                            }
+                        }
+                        .box-button {
+                            display:inline-block;
+                            position: relative;
+                            width: 100%;
+                            height: 3.495vw;
+                            text-align: center;
+                            border-top-width: thin;
+                            border-top-color: #3a97c7;
+                            .btn-text {
+                                font-family: NotoSansKR;
+                                font-size: 16px;
+                                font-weight: bold;
+                                font-stretch: normal;
+                                font-style: normal;
+                                line-height: normal;
+                                letter-spacing: -0.5px;
+                                line-height: 65px;
+                                color: #3a97c7;
+                            }
+                            .btn-text::before {
+                                animation:bounce-x-ltr;
+                                position: absolute;
+                                width: 100%;
+                                height: 1px;
+                                left: 0;
+                                content: "";
+                                background: #3a97c7;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
