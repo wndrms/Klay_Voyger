@@ -4,12 +4,14 @@ import './InputBox.scss';
 
 const InputBox = (props) => {
     const [tmp, settmp] = useState();
+    const [Focus, setFocus] = useState(false);
 
     const onChange = event => {
         const {value} = event.target;
         settmp(value);
         console.log(tmp);
     }
+    const onFocus = event => setFocus(!Focus);
     return (
         <div className="input-box-basic" style={{paddingTop:props.padding}}>
             <div className="input-text-area">
@@ -24,13 +26,21 @@ const InputBox = (props) => {
                 <input 
                     type={props.type}
                     placeholder={props.placeholder}
-                    onChange={onChange}/>
+                    onChange={onChange}
+                    className={classNames("input-basic", {"focus" : Focus || tmp})}
+                    onFocus={onFocus}
+                    onBlur={onFocus}/>
                 {props.symbol && 
                     <div>
                         <span className={classNames("symbol", {"insert": tmp})}>{props.symbol}</span>
                     </div>
                 }
             </div>
+            {props.error &&
+                <div className="error-box">
+                    <span>props.errorMessage</span>
+                </div>
+            }
         </div>
     )
 }
