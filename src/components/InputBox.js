@@ -13,7 +13,7 @@ const InputBox = (props) => {
     }
     const onFocus = event => setFocus(!Focus);
     return (
-        <div className="input-box-basic" style={{paddingTop:props.padding}}>
+        <div className="input-box-basic" style={{padding:props.padding}}>
             <div className="input-text-area">
                 <div className="input-title">
                     <span>{props.title}</span>

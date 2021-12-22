@@ -10,7 +10,7 @@ const Header = (props) => {
     const [account, setaccount] = useState('');
     const [open, setopen] = useState(false);
 
-    const onClick = async () => {
+    const onLogin = async () => {
         if (typeof window.klaytn !== 'undefined') {
             // Kaikas user detected. You can now use the provider.
             const provider = window['klaytn']
@@ -23,9 +23,18 @@ const Header = (props) => {
         }
     }
 
+    const onLogout = async () => {
+        try {
+            const accounts = await window.klaytn.on('disconnect', () => {});
+            setaccount('');
+            setopen(false);
+        } catch(e){
+            console.error(e);
+        }
+    }
+
     const cutaddress = (address) => {
         let cut = address.substr(0, 5) + '. . .' + address.substr(-4, 4);
-        console.log(cut);
         return cut
     }
     return(
@@ -66,7 +75,7 @@ const Header = (props) => {
                             <div className="pointer main-header__user">
                                 <div className="vf-center">
                                     {!account ?
-                                        <div className="main-access-btn" onClick={onClick}>
+                                        <div className="main-access-btn" onClick={onLogin}>
                                                 <span className="main-access-btn__text">지갑연결</span>
                                         </div> :
                                         <div className="main-access-btn auth" onClick={() => setopen(true)}>
@@ -85,7 +94,7 @@ const Header = (props) => {
                                                 {cutaddress(account)}
                                             </div>
                                         </div>
-                                        <div className="main-header__button__area">
+                                        <div className="main-header__button__area" onClick={onLogout}>
                                             <span>로그아웃</span>
                                         </div>
                                     </section>

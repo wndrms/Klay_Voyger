@@ -4,7 +4,7 @@ ul {
 #main-header {
     width: 100%;
     height: 40px;
-    margin: 40px 0;
+    padding: 40px 0;
     .main-header {
         width: 1280px;
         height: 40px;
@@ -40,8 +40,10 @@ ul {
 
             .main-header__desktop {
                 display: flex;
+                flex: 1;
 
                 .main-header__nav {
+                    flex: 1;
                     height: 40px;
                     .main-header__nav__path {
                         height: 40px;
@@ -111,7 +113,7 @@ ul {
             width: 290px;
             height: 180px;
             position:absolute;
-            right: 16.0417vw;
+            right : calc(50% - 640px);
             border-radius: 6px;
             box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.1);
             background-color: #27313b;

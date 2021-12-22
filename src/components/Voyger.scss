@@ -9,7 +9,7 @@
 main {
     .main-page {
         width: 100%;
-        height: calc(100vh - 120px);
+        height: 1280px;
         .main-title-voyger {
             margin-top: 140px;
             text-align: center;
@@ -34,8 +34,7 @@ main {
         }
         .main-card {
             width: 100%;
-            height: auto;
-            height: 47.92vw;
+            height: 600px;
             position: absolute;
             .card-area {
                 position:absolute;

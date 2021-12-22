@@ -59,7 +59,7 @@ const Main = () => {
                                                 type="number"
                                                 placeholder="0"
                                                 symbol="TICKET"
-                                                padding="58px"
+                                                padding="58px 10px 0 10px"
                                                 error="0"
                                                 errorMessage="소유한 티켓보다 많습니다."/> :
                                             <InputBox
@@ -74,7 +74,9 @@ const Main = () => {
                                                 {!card1 ? 
                                                     <>
                                                         <span className="notice-text">동료 선택</span>
-                                                        <img src="img/icon-question@3x.png" alt="?" className="help"/>
+                                                        <div>
+                                                            <img src="img/icon-question@3x.png" alt="?" className="help"/>
+                                                        </div>
                                                     </> : 
                                                     <span className="notice-text">작명 유의사항</span>
                                                 }
