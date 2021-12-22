@@ -6,15 +6,15 @@ ul {
     height: 40px;
     margin: 40px 0;
     .main-header {
-        width: auto;
+        width: 1280px;
         height: 40px;
-        margin-left: 17.9167vw;
-        margin-right: 16.0417vw;
+        margin-left: calc(50% - 640px);
+        margin-right: calc(50% - 640px);
         display: flex;
+        flex-direction: row;
         align-items: center;
         .main-header_logo {
-            margin-right: 11.3542vw;
-            
+            margin-right: 218px;
             display: flex;
             align-items: center;
             .logo_img {
@@ -33,7 +33,9 @@ ul {
             }
         }
         .vf-center {
+            width: auto;
             display: flex;
+            flex: 1;
             height: 100%;
 
             .main-header__desktop {
@@ -48,7 +50,7 @@ ul {
                         .nav-with-bar {
                             display: inline-block;
                             position: relative;
-                            margin-right: 6.7708vw;
+                            margin-right: 130px;
                             cursor: pointer;
                             padding-top: 8px;
                             span {
@@ -79,6 +81,8 @@ ul {
                 .main-access-btn {
                     width: 80px;
                     height: 40px;
+                    margin-right: 0;
+                    margin-left: auto;
                     border-radius: 4px;
                     border: solid 1px #f5424e;
                     background-color: transparent;
@@ -93,7 +97,7 @@ ul {
                         font-weight: normal;
                         font-stretch: normal;
                         font-style: normal;
-                        line-height: 24px;
+                        line-height: 40px;
                         color: #f5424e;
                     }
                     
@@ -103,22 +107,74 @@ ul {
                 }
             }
         }
-    }
-}
-
-#wallet-modal {
-    border-radius: 16px; 
-    box-shadow: rgba(0, 0, 0, 0.25) 8px 8px 12px; 
-    display: block; 
-    overflow: hidden; 
-    background: transparent; 
-    max-width: 27.5rem; 
-    height: auto;
-    
-    display:'flex';
-    align-items: center;
-    justify-content: center;
-    .modal-close {
-        position: absolute; right: 8px; top: 8px;
+        .main-header__user__setting {
+            width: 290px;
+            height: 180px;
+            position:absolute;
+            right: 16.0417vw;
+            border-radius: 6px;
+            box-shadow: 2px 4px 10px 0 rgba(0, 0, 0, 0.1);
+            background-color: #27313b;
+            
+            .main-header__user__setting__exit {
+                width: 100%;
+                height: 20px;
+                margin-top: 20px;
+                
+                img {
+                    width: 20px;
+                    height: 20px;
+                    padding-left: 250px;
+                }
+            }
+            .main-header__user__setting__title {
+                display: flex;
+                width: 100%;
+                height: 24px;
+                margin-top: 24px;
+                span {
+                    padding-left: 48px;
+                    font-family: SpoqaHanSans;
+                    font-size: 16px;
+                    font-weight: normal;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: -0.5px;
+                    color: #f6f2f2;
+                }
+                .user__address {
+                    padding-left: 25px;
+                    font-family: SpoqaHanSans;
+                    font-size: 16px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 1.5;
+                    letter-spacing: -0.5px;
+                    text-align: right;
+                    color: #f5424e;
+                }
+            }
+            .main-header__button__area {
+                width: 100%;
+                height: 40px;
+                margin-top: 52px;
+                text-align: center;  
+                border-bottom-left-radius: 8px;
+                border-bottom-right-radius: 8px;
+                background-color: #3a97c7;
+                span {
+                    font-family: NotoSansKR;
+                    font-size: 12px;
+                    font-weight: bold;
+                    font-stretch: normal;
+                    font-style: normal;
+                    line-height: 40px;
+                    letter-spacing: -0.38px;
+                    color: #24303c;
+                }
+            }
+        }
     }
 }

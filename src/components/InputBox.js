@@ -36,9 +36,9 @@ const InputBox = (props) => {
                     </div>
                 }
             </div>
-            {props.error &&
+            {props.error !== '0' &&
                 <div className="error-box">
-                    <span>props.errorMessage</span>
+                    <span>{props.errorMessage}</span>
                 </div>
             }
         </div>

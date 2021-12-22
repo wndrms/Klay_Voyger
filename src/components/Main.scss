@@ -102,10 +102,9 @@ main {
             .card-area {
                 position:absolute;
                 display: flex;
-                width: 66.67%;
-                max-width: 1280px;
-                height: 32.26vw;
-                margin: 0 16.6667vw;
+                width: 1280px;
+                height: 600px;
+                margin: 0 calc(50% - 640px);
                 
                 z-index: 1;
                 .card {
@@ -121,7 +120,7 @@ main {
                         .box-tab {
                             display: flex;
                             width: 100%;
-                            height: 3.226vw;
+                            height: 60px;
                             
                             .box-menu {
                                 display: inline-block;
@@ -156,69 +155,9 @@ main {
                         }
                         .box-content {
                             width: auto;
-                            height: 25.539vw;
-                            padding-left: 17.74%;
-                            padding-right: 17.74%;
-                            .sub-title {
-                                div {
-                                    padding-bottom: 4px;
-                                    .sub-title-text {
-                                        font-family: NotoSansKR;
-                                        font-size: 16px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
-                                        letter-spacing: -0.5px;
-                                        color: #f6f2f2;
-                                    }
-                                    .sub-title-description {
-                                        font-family: NotoSansKR;
-                                        font-size: 14px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
-                                        letter-spacing: -0.44px;
-                                        color: #3a97c7;
-                                    }
-                                }
-                            }
-                            .input-box {
-                                display: flex;
-                                width: auto;
-                                height: 3.011vw;
-                                background-color: #3a97c7;
-                                align-items: center;
-                                .user-name {
-                                    width: auto;
-                                    height: 1.5592vw;
-                                    margin: 0.7vw auto 0.7527vw 0.8607vw;
-                                    background-color: transparent;
-                                    border: none;
-                                    outline: none;
-                                    font-family: NotoSansKR;
-                                    font-size: 20px;
-                                    font-weight: 500;
-                                    font-stretch: normal;
-                                    font-style: normal;
-                                    line-height: normal;
-                                    letter-spacing: -0.63px;
-                                    color: #556371;
-                                }
-                                .TICKET {
-                                    margin-right: 0.8607vw;
-                                    font-family: NotoSansKR;
-                                    font-size: 20px;
-                                    font-weight: 500;
-                                    font-stretch: normal;
-                                    font-style: normal;
-                                    line-height: normal;
-                                    letter-spacing: -0.63px;
-                                    text-align: right;
-                                    color: #556371;
-                                }
-                            }
+                            height: 475px;
+                            padding-left: 16.13%;
+                            padding-right: 16.13%;
                             .notice-box {
                                 padding-top: 4.5164vw;
                                 .notice-title {
@@ -244,11 +183,16 @@ main {
                                 .buddies {
                                     display: flex;
                                     width: 100%;
-                                    padding: 28px 6px 0 6px;
-                                    .buddy {
-                                        width: 58px;
-                                        height: 92px;
-                                        margin-right: 52px;
+                                    padding-top: 16px;
+                                    .buddy {  
+                                        width: 90px;
+                                        height: 104px;  
+                                        margin-right: 20px;
+                                        padding: 12px 16px;
+                                        border-radius: 8px;
+                                        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+                                        background-color: #24303c;
+                                        box-sizing: border-box;
                                         .buddy-img {
                                             width: 58px;
                                             height: 60px;
@@ -265,7 +209,16 @@ main {
                                                 letter-spacing: -0.38px;
                                                 color: #3a97c7;
                                             }
+                                            .select {
+                                                color: #f5424e;
+                                            }
                                         }
+                                    }
+                                    .buddy:hover {
+                                        border: solid 1px #3a97c7;
+                                    }
+                                    .buddy.select {
+                                        border: solid 1px #f5424e;
                                     }
                                 }
                                 .notice-text-detail {
@@ -295,84 +248,15 @@ main {
                                     color: #f6f2f2;
                                 }
                             }
-                            .account-info {
-                                margin-top: 12px;
-                                margin-bottom: 48px;
-                                .info-title {
-                                    span {
-                                        font-family: NotoSansKR;
-                                        font-size: 16px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
-                                        letter-spacing: -0.5px;
-                                        color: #f6f2f2;
-                                    }
-                                }
-                                .info-detail {
-                                    span {
-                                        font-family: NotoSansKR;
-                                        font-size: 14px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
-                                        letter-spacing: -0.44px;
-                                        color: #3a97c7;
-                                    }
-                                }
-                                .info-num {
-                                    width: 100%;
-                                    height: 3.011vw;
-                                    margin-top: 16px;
-                                    border: solid 1px #556371;
-                                    background-color: #24303c;
-                                    display: flex;
-                                    align-items: center;
-                                    .num-box {
-                                        margin: 0.7vw 0 0.7527vw 0.8607vw;
-                                        height: auto;
-                                        text-align: center;
-                                        span {
-                                            font-family: NotoSansKR;
-                                            font-size: 20px;
-                                            font-weight: 500;
-                                            font-stretch: normal;
-                                            font-style: normal;
-                                            line-height: normal;
-                                            letter-spacing: -0.63px;
-                                            color: #556371;
-                                        }
-                                    }
-                                    .symbol {
-                                        width: auto;
-                                        margin: 0.7vw 0.8607vw 0.7527vw auto;
-                                        text-align: center;
-                                        span {
-                                            font-family: NotoSansKR;
-                                            font-size: 20px;
-                                            font-weight: 500;
-                                            font-stretch: normal;
-                                            font-style: normal;
-                                            line-height: normal;
-                                            letter-spacing: -0.63px;
-                                            color: #556371;
-                                        }
-                                    }
-                                    .num-data {
-                                        text-align: left;
-                                    }
-                                }
-                            }
                             .popularity {
                                 width: 100%;
-                                margin-top: 12px;
+                                margin-top: 60px;
                                 .popularity-title-box {
                                     width: 100%;
                                     display: flex;
                                     align-items: center;
                                     .popularity-title-text {
+                                        width: auto;
                                         span {
                                             @include sub-title;
                                         }
@@ -381,6 +265,7 @@ main {
                                         float:right;
                                         span {
                                             @include notice-text;
+                                            text-align: right;
                                         }
                                     }
                                 }
@@ -411,65 +296,6 @@ main {
                                     }
                                 }
                                 
-                            }
-                            .box-data {
-                                height: 5.1616vw;
-                                padding-top: 2.688vw;
-                                padding-bottom: 0.5377vw;
-                                .box-data-title {
-                                    padding-bottom: 0.8607vw;
-                                    .box-data-text {
-                                        font-family: NotoSansKR;
-                                        font-size: 16px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
-                                        letter-spacing: -0.5px;
-                                        color: #f6f2f2;
-                                    }
-                                }
-                                .box-data-num {
-                                    width: 100%;
-                                    height: 3.011vw;
-                                    border: solid 1px #556371;
-                                    background-color: #24303c;
-                                    display: flex;
-                                    align-items: center;
-                                    .num-box {
-                                        margin: 0.7vw 0 0.7527vw 0.8607vw;
-                                        height: auto;
-                                        text-align: center;
-                                        span {
-                                            font-family: NotoSansKR;
-                                            font-size: 20px;
-                                            font-weight: 500;
-                                            font-stretch: normal;
-                                            font-style: normal;
-                                            line-height: normal;
-                                            letter-spacing: -0.63px;
-                                            color: #556371;
-                                        }
-                                    }
-                                    .KLAY-symbol {
-                                        width: auto;
-                                        margin: 0.7vw 0.8607vw 0.7527vw auto;
-                                        text-align: center;
-                                        span {
-                                            font-family: NotoSansKR;
-                                            font-size: 20px;
-                                            font-weight: 500;
-                                            font-stretch: normal;
-                                            font-style: normal;
-                                            line-height: normal;
-                                            letter-spacing: -0.63px;
-                                            color: #556371;
-                                        }
-                                    }
-                                    .num-data {
-                                        text-align: left;
-                                    }
-                                }
                             }
                             .information-box {
                                 padding-top: 2.8496vw;
@@ -503,35 +329,6 @@ main {
                                         color: #556371;
                                     }
                                 }
-                            }
-                        }
-                        .box-button {
-                            display:inline-block;
-                            position: relative;
-                            width: 100%;
-                            height: 3.495vw;
-                            text-align: center;
-                            border-top-width: thin;
-                            border-top-color: #3a97c7;
-                            .btn-text {
-                                font-family: NotoSansKR;
-                                font-size: 16px;
-                                font-weight: bold;
-                                font-stretch: normal;
-                                font-style: normal;
-                                line-height: normal;
-                                letter-spacing: -0.5px;
-                                line-height: 65px;
-                                color: #3a97c7;
-                            }
-                            .btn-text::before {
-                                animation:bounce-x-ltr;
-                                position: absolute;
-                                width: 100%;
-                                height: 1px;
-                                left: 0;
-                                content: "";
-                                background: #3a97c7;
                             }
                         }
                     }

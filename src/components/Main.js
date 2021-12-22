@@ -4,10 +4,12 @@ import './Main.scss';
 import classNames from "classnames";
 import InputBox from "./InputBox";
 import DataBox from "./DataBox";
+import Button from "./Button";
 
 const Main = () => {
     const [card1, setcard1] = useState(false);
     const [card2, setcard2] = useState(false);
+    const [team, setteam] = useState(0);
     return(
         <>
             <div>
@@ -57,7 +59,9 @@ const Main = () => {
                                                 type="number"
                                                 placeholder="0"
                                                 symbol="TICKET"
-                                                padding="58px"/> :
+                                                padding="58px"
+                                                error="0"
+                                                errorMessage="소유한 티켓보다 많습니다."/> :
                                             <InputBox
                                                 title="이름 입력"
                                                 detail="리더보드에 표기될 이름을 입력하세요"
@@ -77,28 +81,28 @@ const Main = () => {
                                             </div>
                                             {!card1 ? 
                                                 <div className="buddies">
-                                                    <div className="buddy">
-                                                        <img src="img/icon-mom-default@3x.png" className="buddy-img"/>
+                                                    <div className={classNames("buddy", {'select' : team === 'mom'})} onClick={() => setteam('mom')}>
+                                                        <img src={team !== 'mom' ? "img/icon-mom-default@3x.png" : "img/icon-mom-select@3x.png"} className="buddy-img"/>
                                                         <div className="buddy-name">
-                                                            <span className="buddy-name-text">엄마</span>
+                                                            <span className={classNames("buddy-name-text", {'select' : team === 'mom'})}>엄마</span>
                                                         </div>
                                                     </div>
-                                                    <div className="buddy">
-                                                        <img src="img/icon-dad-default@3x.png" className="buddy-img"/>
+                                                    <div className={classNames("buddy", {'select' : team === 'dad'})} onClick={() => setteam('dad')}>
+                                                        <img src={team !== 'dad' ? "img/icon-dad-default@3x.png" : "img/icon-dad-select@3x.png"} className="buddy-img"/>
                                                         <div className="buddy-name">
-                                                            <span className="buddy-name-text">아빠</span>
+                                                            <span className={classNames("buddy-name-text", {'select' : team === 'dad'})}>아빠</span>
                                                         </div>
                                                     </div>
-                                                    <div className="buddy">
-                                                        <img src="img/icon-gf-default@3x.png" className="buddy-img"/>
+                                                    <div className={classNames("buddy", {'select' : team === 'gf'})} onClick={() => setteam('gf')}>
+                                                        <img src={team !== 'gf' ? "img/icon-gf-default@3x.png" : "img/icon-gf-select@3x.png"} className="buddy-img"/>
                                                         <div className="buddy-name">
-                                                            <span className="buddy-name-text">여자친구</span>
+                                                            <span className={classNames("buddy-name-text", {'select' : team === 'gf'})}>여자친구</span>
                                                         </div>
                                                     </div>
-                                                    <div className="buddy">
-                                                        <img src="img/icon-dragon-default@3x.png" className="buddy-img"/>
+                                                    <div className={classNames("buddy", {'select' : team === 'dragon'})} onClick={() => setteam('dragon')}>
+                                                        <img src={team !== 'dragon' ? "img/icon-dragon-default@3x.png" : "img/icon-dragon-select@3x.png"} className="buddy-img"/>
                                                         <div className="buddy-name">
-                                                            <span className="buddy-name-text">크롱이</span>
+                                                            <span className={classNames("buddy-name-text", {'select' : team === 'dragon'})}>크롱이</span>
                                                         </div>
                                                     </div>
                                                 </div> :
@@ -110,9 +114,10 @@ const Main = () => {
                                             }
                                         </div>
                                     </div>
-                                    <div className="box-button">
-                                        <span className="btn-text">{!card1 ? "보내기" : "등록"}</span>
-                                    </div>
+                                    {!card1 ? 
+                                        <Button text="보내기"/> :
+                                        <Button text="등록"/>
+                                    }
                                 </div>
                             </div>
                             <div className="card" style={{paddingLeft:"20px"}}>
@@ -215,9 +220,7 @@ const Main = () => {
                                         }
                                     </div>
                                     { card2 && 
-                                        <div className="box-button">
-                                            <span className="btn-text">수령하기</span>
-                                        </div>
+                                        <Button text="수령하기"/>
                                     }
                                     
                                 </div>

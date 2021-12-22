@@ -43,7 +43,9 @@ const Voyger = () => {
                                             type="number"
                                             placeholder="0"
                                             symbol="KRNO"
-                                            padding="60px"/>
+                                            padding="60px"
+                                            error="0"
+                                            errorMessage="소유한 KRNO 보다 많습니다."/>
                                     </div>
                                     <div className="box-button">
                                         <span className="btn-text">등록</span>
@@ -72,7 +74,9 @@ const Voyger = () => {
                                                 type="number"
                                                 placeholder="0"
                                                 symbol="VYG"
-                                                padding="60px"/> :
+                                                padding="60px"
+                                                error="0"
+                                                errorMessage="소유한 보이저 토큰보다 많습니다."/> :
                                             <>
                                                 <DataBox
                                                     title="스테이킹한 보이저 토큰"

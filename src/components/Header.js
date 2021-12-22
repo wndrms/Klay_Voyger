@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import './Header.scss';
+import Button from "./Button";
 
 
 const Header = (props) => {
     const navigate = useNavigate();
     const [account, setaccount] = useState('');
+    const [open, setopen] = useState(false);
 
     const onClick = async () => {
         if (typeof window.klaytn !== 'undefined') {
@@ -63,10 +65,31 @@ const Header = (props) => {
                             </nav>
                             <div className="pointer main-header__user">
                                 <div className="vf-center">
-                                    <button className={classnames("main-access-btn", {auth : account})} onClick={onClick}>
-                                        <span className="main-access-btn__text">{(account === '' ? '지갑연결' : cutaddress(account))}</span>
-                                    </button>
+                                    {!account ?
+                                        <div className="main-access-btn" onClick={onClick}>
+                                                <span className="main-access-btn__text">지갑연결</span>
+                                        </div> :
+                                        <div className="main-access-btn auth" onClick={() => setopen(true)}>
+                                                <span className="main-access-btn__text">{cutaddress(account)}</span>
+                                        </div>
+                                    }
                                 </div>
+                                {open && 
+                                    <section className="main-header__user__setting">
+                                        <div className="main-header__user__setting__exit">
+                                            <img src="/img/icon-exit@3x.png" alt="exit" onClick={() => setopen(false)}/>
+                                        </div>
+                                        <div className="main-header__user__setting__title">
+                                            <span>연결된 지갑</span>
+                                            <div className="user__address">
+                                                {cutaddress(account)}
+                                            </div>
+                                        </div>
+                                        <div className="main-header__button__area">
+                                            <span>로그아웃</span>
+                                        </div>
+                                    </section>
+                                }
                             </div>
                         </article>
                     </div>

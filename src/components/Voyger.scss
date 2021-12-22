@@ -11,6 +11,7 @@ main {
         width: 100%;
         height: calc(100vh - 120px);
         .main-title-voyger {
+            margin-top: 140px;
             text-align: center;
             .main-title-text {
                 @include text;
@@ -39,9 +40,8 @@ main {
             .card-area {
                 position:absolute;
                 display: flex;
-                width: 66.67%;
-                max-width: 1280px;
-                margin: 0 16.6667vw;
+                width: 1280px;
+                margin: 0 calc(50% - 640px);
                 z-index: 1;
                 .short {
                     width: 50%;

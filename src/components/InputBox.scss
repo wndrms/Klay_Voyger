@@ -66,6 +66,18 @@
         .insert {
             color: #24303c;
         }
-
+    }
+    .error-box {
+        margin-top: 8px;
+        span {
+            font-family: NotoSansKR;
+            font-size: 12px;
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: -0.38px;
+            color: #f5424e;
+        }
     }
 }
