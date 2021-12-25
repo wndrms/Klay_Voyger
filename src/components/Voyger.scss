@@ -57,7 +57,6 @@ main {
                             width: 100%;
                             height: 14.85%;
                             .box-menu-max{
-                                display: inline-block;
                                 position: relative;
                                 width: 100%;
                                 height: 100%;
@@ -72,8 +71,8 @@ main {
                         .box-content {
                             width: auto;
                             height: 69.09%;
-                            padding-left: 17.74%;
-                            padding-right: 17.74%;
+                            padding-left: 110px;
+                            padding-right: 110px;
                         }
                         .box-button {
                             display:inline-block;

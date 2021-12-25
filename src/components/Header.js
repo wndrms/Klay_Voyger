@@ -7,7 +7,7 @@ import Button from "./Button";
 
 const Header = (props) => {
     const navigate = useNavigate();
-    const [account, setaccount] = useState('');
+    const [account, setaccount] = useState(props.address);
     const [open, setopen] = useState(false);
 
     const onLogin = async () => {
@@ -18,6 +18,7 @@ const Header = (props) => {
         try {
             const accounts = await window.klaytn.enable();
             setaccount(accounts['0'])
+            props.onLogin(accounts['0'])
         } catch(e){
             console.error(e);
         }
@@ -27,6 +28,7 @@ const Header = (props) => {
         try {
             const accounts = await window.klaytn.on('disconnect', () => {});
             setaccount('');
+            props.onLogin();
             setopen(false);
         } catch(e){
             console.error(e);

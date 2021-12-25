@@ -4,13 +4,14 @@ import './Voyger.scss';
 import classNames from "classnames";
 import InputBox from "./InputBox";
 import DataBox from "./DataBox";
+import Button from "./Button";
 
-const Voyger = () => {
+const Voyger = ({address, onLogin}) => {
     const [card, setcard] = useState(false);
     return(
         <>
             <div>
-                <Header menu='2'></Header>
+                <Header menu='2' address={address} onLogin={onLogin}></Header>
             </div>
             <main className="main-view">
                 <section className="main-page">
@@ -43,7 +44,7 @@ const Voyger = () => {
                                             type="number"
                                             placeholder="0"
                                             symbol="KRNO"
-                                            padding="60px"
+                                            padding="60px 0"
                                             error="0"
                                             errorMessage="소유한 KRNO 보다 많습니다."/>
                                     </div>
@@ -74,17 +75,17 @@ const Voyger = () => {
                                                 type="number"
                                                 placeholder="0"
                                                 symbol="VYG"
-                                                padding="60px"
+                                                padding="60px 0"
                                                 error="0"
                                                 errorMessage="소유한 보이저 토큰보다 많습니다."/> :
                                             <>
                                                 <DataBox
-                                                    title="스테이킹한 보이저 토큰"
+                                                    title="스테이킹한 보이저 토큰"
                                                     pointer="0"
                                                     symbol="VYG"
                                                     padding="50px"/>
                                                 <DataBox
-                                                    title="총 스테이킹된 보이저 토큰"
+                                                    title="총 스테이킹된 보이저 토큰"
                                                     pointer="0"
                                                     symbol="VYG"
                                                     padding="60px"/>
@@ -99,9 +100,7 @@ const Voyger = () => {
                                             </>
                                         }
                                     </div>
-                                    <div className="box-button">
-                                        <span className="btn-text">수령하기</span>
-                                    </div>
+                                    <Button text="수령하기"/>
                                 </div>
                             </div>
                         </div>

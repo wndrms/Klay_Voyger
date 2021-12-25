@@ -6,14 +6,26 @@ import InputBox from "./InputBox";
 import DataBox from "./DataBox";
 import Button from "./Button";
 
-const Main = () => {
+const Main = ({address, onLogin}) => {
     const [card1, setcard1] = useState(false);
     const [card2, setcard2] = useState(false);
     const [team, setteam] = useState(0);
+    const [ticket_in, setticket_in] = useState();
+    const [user_name, setuser_name] = useState("");
+    const [error, seterror] = useState(false);
+
+    const check_name = (name) => {
+        var pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/;
+
+        if(name.length > 15) return -1
+        else if (pattern_spc.test(name)) return -1
+        else if (name.search(/\s/) > 2) return -1
+        else return 0
+    }
     return(
         <>
             <div>
-                <Header menu='1'></Header>
+                <Header menu='1' address={address} onLogin={onLogin}></Header>
             </div>
             <main className="main-view">
                 <section className="main-page">
@@ -58,16 +70,24 @@ const Main = () => {
                                                 detail="티켓 1장에 15초 연장 / 1티켓 = 0.25 KLAY"
                                                 type="number"
                                                 placeholder="0"
+                                                input={ticket_in}
+                                                onChange={value => setticket_in(value)}
                                                 symbol="TICKET"
                                                 padding="58px 10px 0 10px"
-                                                error="0"
+                                                error={error}
                                                 errorMessage="소유한 티켓보다 많습니다."/> :
                                             <InputBox
                                                 title="이름 입력"
                                                 detail="리더보드에 표기될 이름을 입력하세요"
                                                 type="text"
                                                 placeholder="사용자 이름"
-                                                padding="58px"/>                                                
+                                                input={user_name}
+                                                onChange={value => setuser_name(value)}
+                                                padding="58px 10px 0 10px"
+                                                error={error}
+                                                errorMessage="띄어쓰기가 한칸 이상입니다.\n
+                                                15자리가 넘었습니다.\n
+                                                등록 비용이 모자랍니다."/>                                                
                                         }
                                         <div className="notice-box">
                                             <div className="notice-title">
@@ -110,15 +130,22 @@ const Main = () => {
                                                 </div> :
                                                 <div>
                                                     <p className="notice-text-detail">*최대 15자 이내</p>
-                                                    <p className="notice-text-detail">*특수문자 불가, 띄어쓰기는 한칸만</p>
+                                                    <p className="notice-text-detail">*특수문자 불가, 띄어쓰기는 한칸만</p>
                                                     <p className="notice-text-detail">*등록 비용 : 5 KLAY</p>
                                                 </div>
                                             }
                                         </div>
                                     </div>
                                     {!card1 ? 
-                                        <Button text="보내기"/> :
-                                        <Button text="등록"/>
+                                        <Button 
+                                            text="보내기" 
+                                            correct={ticket_in}
+                                            onError={() => seterror(true)}/> :
+                                        <Button 
+                                            text="등록"
+                                            correct={user_name}
+                                            onClick={check_name(user_name)}
+                                            onError={() => seterror(true)}/>
                                     }
                                 </div>
                             </div>

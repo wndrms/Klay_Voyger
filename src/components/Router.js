@@ -3,12 +3,12 @@ import {HashRouter as Router, Route, Routes} from "react-router-dom";
 import Main from "./Main";
 import Voyger from "./Voyger";
 
-const AppRouter = () => {
+const AppRouter = ({address, onLogin}) => {
     return(
         <Router>
             <Routes>
-                <Route path="/" element={<Main/>}></Route>
-                <Route path="/Voyger" element={<Voyger/>}></Route>
+                <Route path="/" element={<Main address={address} onLogin={onLogin}/>}></Route>
+                <Route path="/Voyger" element={<Voyger address={address} onLogin={onLogin}/>}></Route>
             </Routes>
         </Router>
     )
