@@ -1,18 +1,31 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "components/Header";
 import './Main.scss';
 import classNames from "classnames";
 import InputBox from "./InputBox";
 import DataBox from "./DataBox";
 import Button from "./Button";
+import Caver from "caver-js";
+import FoMo3D from "../FoMo3Dlong.json";
 
 const Main = ({address, onLogin}) => {
+    const caver = new Caver(window.klaytn);
+
     const [card1, setcard1] = useState(false);
     const [card2, setcard2] = useState(false);
     const [team, setteam] = useState(0);
     const [ticket_in, setticket_in] = useState();
     const [user_name, setuser_name] = useState("");
+    const [user_ticket, setuser_ticket] = useState();
     const [error, seterror] = useState(false);
+
+    useEffect( async() => {
+        if (address){
+            const myContract = new caver.klay.Contract(FoMo3D, '0x8DA93FC0B59BDd4d03A575e47254996f3B2f07A4');
+            const Info = await myContract.call('getPlayerInfoByAddress', address)
+            setuser_ticket(Info['2']/Math.pow(10, 18));
+        }
+    }, [address])
 
     const check_name = (name) => {
         var pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/;
@@ -23,21 +36,39 @@ const Main = ({address, onLogin}) => {
         else return 0
     }
 
+    const buyticket = () => {
+        const myContract = new caver.klay.Contract(FoMo3D, '0x8DA93FC0B59BDd4d03A575e47254996f3B2f07A4');
+        console.log(myContract);
+        const team_num = (team === 'mom' ? 0
+                        : team === 'dad' ? 1
+                        : team === 'gf' ? 2
+                        : 3);
+        const klayspend = new caver.utils.toBN(ticket_in/4);
+        console.log(team_num);
+        myContract.methods.buyXaddr(
+            address, team_num
+        ).send({
+            from: address, 
+            value: caver.utils.toPeb(klayspend, 'KLAY'),
+            gas: '0x4bfd200'
+        }, function(error, transactionHash){
+            console.log(transactionHash);
+        });
+    }
+
     const register = (name) => {
-        const transactionParameters = {
-            gas: '0x2710',
-            to: '0x0000000000000000000000000000000000000000',
-            from: window.klaytn.selectedAddress,
-            value: '0xff'
-          }
-          
-          window.klaytn.sendAsync(
-            {
-              method: 'klay_sendTransaction',
-              params: [transactionParameters],
-              from: window.klaytn.selectedAddress
-            }
-          )
+        const myContract = new caver.klay.Contract(FoMo3D, '0x8DA93FC0B59BDd4d03A575e47254996f3B2f07A4');
+        
+        console.log(myContract);
+        myContract.methods.registerNameXname(
+            name, "0x000000000000000000000000000000000000000000", true
+        ).send({
+            from: address, 
+            value: caver.utils.toPeb('1', 'KLAY'),
+            gas: '0x4bfd200'
+        }, function(error, transactionHash){
+            console.log(transactionHash);
+        });
     }
     return(
         <>
@@ -159,6 +190,7 @@ const Main = ({address, onLogin}) => {
                                         <Button 
                                             text="보내기" 
                                             correct={address && ticket_in && team}
+                                            onClick={() => buyticket()}
                                             onError={() => seterror(true)}/> :
                                         <Button 
                                             text="등록"
@@ -190,7 +222,7 @@ const Main = ({address, onLogin}) => {
                                                 </div>
                                                 <DataBox
                                                     title="내 티켓"
-                                                    detail="전체 티켓 수 : 6,123개"
+                                                    detail={"전체 티켓 수 : " + user_ticket + "개"}
                                                     pointer="0"
                                                     symbol="TICKET"
                                                     padding="12px"/>

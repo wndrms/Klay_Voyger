@@ -1,5 +1,5 @@
 @mixin text {
-    font-family: NotoSansKR;
+    font-family: NotoSans;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -41,7 +41,7 @@
             background-color: transparent;
             border: none;
             outline: none;
-            font-family: NotoSansKR;
+            font-family: NotoSans;
             font-size: 20px;
             font-weight: 500;
             font-stretch: normal;
@@ -55,7 +55,7 @@
         }
         .symbol {
             margin-right: 16px;
-            font-family: NotoSansKR;
+            font-family: NotoSans;
             font-size: 20px;
             font-weight: 500;
             font-stretch: normal;
@@ -73,7 +73,7 @@
         margin-top: 8px;
         height: 16px;
         span {
-            font-family: NotoSansKR;
+            font-family: NotoSans;
             font-size: 12px;
             font-weight: normal;
             font-stretch: normal;

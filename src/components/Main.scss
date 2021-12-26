@@ -8,8 +8,8 @@ input:focus::-webkit-input-placeholder, textarea:focus::-webkit-input-placeholde
 }
 
 
-@mixin text {
-    font-family: NotoSansKR;
+@mixin text {  
+    font-family: NotoSans;
     font-weight: normal;
     font-stretch: normal;
     font-style: normal;
@@ -57,12 +57,9 @@ main {
             text-align: center;
             .main-title-text {
                 height: 80px;
-                font-family: NotoSansKR;
+                @include text;
                 font-size: 56px;
                 font-weight: bold;
-                font-stretch: normal;
-                font-style: normal;
-                line-height: normal;
                 letter-spacing: -1.75px;
                 text-align: center;
                 color: #f5424e;
@@ -165,11 +162,8 @@ main {
                                     vertical-align: middle;
                                     .notice-text {
                                         display: inline-block;
-                                        font-family: NotoSansKR;
+                                        @include text;
                                         font-size: 16px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
                                         line-height: 24px;
                                         letter-spacing: -0.5px;
                                         color: #f6f2f2;
@@ -202,12 +196,8 @@ main {
                                         .buddy-name {
                                             text-align: center;
                                             .buddy-name-text {
-                                                font-family: NotoSansKR;
+                                                @include text;
                                                 font-size: 12px;
-                                                font-weight: normal;
-                                                font-stretch: normal;
-                                                font-style: normal;
-                                                line-height: normal;
                                                 letter-spacing: -0.38px;
                                                 color: #3a97c7;
                                             }
@@ -225,11 +215,8 @@ main {
                                 }
                                 .notice-text-detail {
                                     padding-left: 10px;
-                                    font-family: NotoSansKR;
+                                    @include text;
                                     font-size: 14px;
-                                    font-weight: normal;
-                                    font-stretch: normal;
-                                    font-style: normal;
                                     line-height: 0.4839vw;
                                     letter-spacing: -0.44px;
                                     color: #3a97c7;
@@ -241,12 +228,9 @@ main {
                                 margin-top: 16px;
                                 text-align: center;
                                 .card-title-text {
-                                    font-family: NotoSansKR;
+                                    @include text;
                                     font-size: 20px;
                                     font-weight: 500;
-                                    font-stretch: normal;
-                                    font-style: normal;
-                                    line-height: normal;
                                     letter-spacing: -0.63px;
                                     color: #f6f2f2;
                                 }
@@ -288,12 +272,8 @@ main {
                                         .popularity-data-num {
                                             margin-top: 8px;
                                             span {
-                                                font-family: NotoSansKR;
+                                                @include text;
                                                 font-size: 14px;
-                                                font-weight: normal;
-                                                font-stretch: normal;
-                                                font-style: normal;
-                                                line-height: normal;
                                                 letter-spacing: -0.44px;
                                                 color: #f5424e;
                                             }
@@ -309,12 +289,8 @@ main {
                                 .information-box-title {
                                     text-align: center;
                                     span {
-                                        font-family: NotoSansKR;
+                                        @include text;
                                         font-size: 16px;
-                                        font-weight: normal;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
                                         letter-spacing: -0.5px;
                                         color: #f6f2f2;
                                     }
@@ -324,12 +300,9 @@ main {
                                     margin: 0.7vw 0.8607vw 0.7527vw auto;
                                     text-align: center;
                                     span {
-                                        font-family: NotoSansKR;
+                                        @include text;
                                         font-size: 20px;
                                         font-weight: bold;
-                                        font-stretch: normal;
-                                        font-style: normal;
-                                        line-height: normal;
                                         letter-spacing: -0.63px;
                                         color: #556371;
                                     }
