@@ -22,6 +22,23 @@ const Main = ({address, onLogin}) => {
         else if (name.search(/\s/) > 2) return -1
         else return 0
     }
+
+    const register = (name) => {
+        const transactionParameters = {
+            gas: '0x2710',
+            to: '0x0000000000000000000000000000000000000000',
+            from: window.klaytn.selectedAddress,
+            value: '0xff'
+          }
+          
+          window.klaytn.sendAsync(
+            {
+              method: 'klay_sendTransaction',
+              params: [transactionParameters],
+              from: window.klaytn.selectedAddress
+            }
+          )
+    }
     return(
         <>
             <div>
@@ -141,12 +158,12 @@ const Main = ({address, onLogin}) => {
                                     {!card1 ? 
                                         <Button 
                                             text="보내기" 
-                                            correct={ticket_in && team}
+                                            correct={address && ticket_in && team}
                                             onError={() => seterror(true)}/> :
                                         <Button 
                                             text="등록"
-                                            correct={user_name}
-                                            onClick={check_name(user_name)}
+                                            correct={address && user_name}
+                                            onClick={() => register(user_name)}
                                             onError={() => seterror(true)}/>
                                     }
                                 </div>

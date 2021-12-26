@@ -55,7 +55,7 @@ const Voyger = ({address, onLogin}) => {
                                     </div>
                                     <Button
                                         text="등록"
-                                        correct={Krno}
+                                        correct={address && Krno}
                                         onError={() => seterror1(true)}/>
                                 </div>
                             </div>
@@ -109,7 +109,7 @@ const Voyger = ({address, onLogin}) => {
                                     </div>
                                     <Button 
                                         text="수령하기"
-                                        correct={VYG}
+                                        correct={address && VYG}
                                         onError={() => seterror2(true)}/>
                                 </div>
                             </div>
