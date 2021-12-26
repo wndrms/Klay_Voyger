@@ -41,7 +41,7 @@ const InputBox = (props) => {
                     onBlur={onFocus}/>
                 {props.symbol && 
                     <div>
-                        <span className={classNames("symbol", {"insert": tmp})}>{props.symbol}</span>
+                        <span className={classNames("symbol", {"insert": Focus || tmp})}>{props.symbol}</span>
                     </div>
                 }
             </div>

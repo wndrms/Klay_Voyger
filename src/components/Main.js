@@ -54,7 +54,9 @@ const Main = ({address, onLogin}) => {
                                     <div className="box-tab">
                                         <div className="box-menu" onClick={() => setcard1(false)}>
                                             <div>
-                                                <span className={classNames("menu-text", {'selected': !card1})}>티켓팅</span>
+                                                <div>
+                                                    <span className={classNames("menu-text", {'selected': !card1})}>티켓팅</span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div className="box-menu" onClick={() => setcard1(true)}>
