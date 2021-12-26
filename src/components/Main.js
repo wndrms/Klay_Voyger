@@ -30,7 +30,7 @@ const Main = ({address, onLogin}) => {
             <main className="main-view">
                 <section className="main-page">
                     <div className="rocket-img-area">
-                        <img src="/img/img-et@3x.png"/>
+                        <img src="/img/img-et@3x.png" alt="Rocket"/>
                     </div>
                     <section className="main-title">
                         <span className="main-title-text">
@@ -104,25 +104,25 @@ const Main = ({address, onLogin}) => {
                                             {!card1 ? 
                                                 <div className="buddies">
                                                     <div className={classNames("buddy", {'select' : team === 'mom'})} onClick={() => setteam('mom')}>
-                                                        <img src={team !== 'mom' ? "img/icon-mom-default@3x.png" : "img/icon-mom-select@3x.png"} className="buddy-img"/>
+                                                        <img src={team !== 'mom' ? "img/icon-mom-default@3x.png" : "img/icon-mom-select@3x.png"} alt="mom" className="buddy-img"/>
                                                         <div className="buddy-name">
                                                             <span className={classNames("buddy-name-text", {'select' : team === 'mom'})}>엄마</span>
                                                         </div>
                                                     </div>
                                                     <div className={classNames("buddy", {'select' : team === 'dad'})} onClick={() => setteam('dad')}>
-                                                        <img src={team !== 'dad' ? "img/icon-dad-default@3x.png" : "img/icon-dad-select@3x.png"} className="buddy-img"/>
+                                                        <img src={team !== 'dad' ? "img/icon-dad-default@3x.png" : "img/icon-dad-select@3x.png"} alt="dad" className="buddy-img"/>
                                                         <div className="buddy-name">
                                                             <span className={classNames("buddy-name-text", {'select' : team === 'dad'})}>아빠</span>
                                                         </div>
                                                     </div>
                                                     <div className={classNames("buddy", {'select' : team === 'gf'})} onClick={() => setteam('gf')}>
-                                                        <img src={team !== 'gf' ? "img/icon-gf-default@3x.png" : "img/icon-gf-select@3x.png"} className="buddy-img"/>
+                                                        <img src={team !== 'gf' ? "img/icon-gf-default@3x.png" : "img/icon-gf-select@3x.png"} alt="gf" className="buddy-img"/>
                                                         <div className="buddy-name">
                                                             <span className={classNames("buddy-name-text", {'select' : team === 'gf'})}>여자친구</span>
                                                         </div>
                                                     </div>
                                                     <div className={classNames("buddy", {'select' : team === 'dragon'})} onClick={() => setteam('dragon')}>
-                                                        <img src={team !== 'dragon' ? "img/icon-dragon-default@3x.png" : "img/icon-dragon-select@3x.png"} className="buddy-img"/>
+                                                        <img src={team !== 'dragon' ? "img/icon-dragon-default@3x.png" : "img/icon-dragon-select@3x.png"} alt="dragon" className="buddy-img"/>
                                                         <div className="buddy-name">
                                                             <span className={classNames("buddy-name-text", {'select' : team === 'dragon'})}>크롱이</span>
                                                         </div>

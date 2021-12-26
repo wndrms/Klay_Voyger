@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import classnames from "classnames";
 import './Header.scss';
-import Button from "./Button";
 
 
 const Header = (props) => {
@@ -26,7 +25,7 @@ const Header = (props) => {
 
     const onLogout = async () => {
         try {
-            const accounts = await window.klaytn.on('disconnect', () => {});
+            await window.klaytn.on('disconnect', () => {});
             setaccount('');
             props.onLogin();
             setopen(false);
