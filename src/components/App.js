@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import AppRouter from "components/Router";
 import "./App.scss";
-import { useState } from "react/cjs/react.development";
 
 function App() {
   const [address, setaddress] = useState();

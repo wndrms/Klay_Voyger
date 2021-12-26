@@ -8,6 +8,10 @@ import Button from "./Button";
 
 const Voyger = ({address, onLogin}) => {
     const [card, setcard] = useState(false);
+    const [error1, seterror1] = useState(false);
+    const [error2, seterror2] = useState(false);
+    const [Krno, setKrno] = useState();
+    const [VYG, setVYG] = useState();
     return(
         <>
             <div>
@@ -45,12 +49,14 @@ const Voyger = ({address, onLogin}) => {
                                             placeholder="0"
                                             symbol="KRNO"
                                             padding="60px 0"
-                                            error="0"
+                                            onChange={value => setKrno(value)}
+                                            error={error1}
                                             errorMessage="소유한 KRNO 보다 많습니다."/>
                                     </div>
-                                    <div className="box-button">
-                                        <span className="btn-text">등록</span>
-                                    </div>
+                                    <Button
+                                        text="등록"
+                                        correct={Krno}
+                                        onError={() => seterror1(true)}/>
                                 </div>
                             </div>
                             <div className={classNames("card", {"short": !card})} style={{paddingLeft:"20px"}}>
@@ -76,7 +82,8 @@ const Voyger = ({address, onLogin}) => {
                                                 placeholder="0"
                                                 symbol="VYG"
                                                 padding="60px 0"
-                                                error="0"
+                                                onChange={value => setVYG(value)}
+                                                error={error2}
                                                 errorMessage="소유한 보이저 토큰보다 많습니다."/> :
                                             <>
                                                 <DataBox
@@ -100,7 +107,10 @@ const Voyger = ({address, onLogin}) => {
                                             </>
                                         }
                                     </div>
-                                    <Button text="수령하기"/>
+                                    <Button 
+                                        text="수령하기"
+                                        correct={VYG}
+                                        onError={() => seterror2(true)}/>
                                 </div>
                             </div>
                         </div>
