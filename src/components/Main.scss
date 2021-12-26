@@ -119,26 +119,28 @@ main {
                                 position: relative;
                                 width: 50%;
                                 height: 100%;
+                                align-items: center;
+                                text-align: center;
                                 div {
-                                    width: auto;
+                                    display: inline-block;
                                     text-align: center; 
-                                }
-                                .menu-text {
-                                    @include sub-title;
-                                    line-height: 60px;
-                                    color: #556371;
-                                }
-                                .selected {
-                                    color: #f6f2f2;
-                                }
-                                .selected:after {
-                                    position: absolute;
-                                    width: 100%;
-                                    height: 2px;
-                                    bottom: 0px;
-                                    left: 0;
-                                    content: "";
-                                    background:#f5424e;
+                                    .menu-text {
+                                        @include sub-title;
+                                        line-height: 60px;
+                                        color: #556371;
+                                    }
+                                    .selected {
+                                        color: #f6f2f2;
+                                    }
+                                    span.selected:after {
+                                        position: absolute;
+                                        width: 100%;
+                                        height: 2px;
+                                        bottom: 0px;
+                                        left: 0;
+                                        content: "";
+                                        background:#f5424e;
+                                    }
                                 }
                             }
                         }

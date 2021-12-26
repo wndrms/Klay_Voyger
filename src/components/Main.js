@@ -53,7 +53,7 @@ const Main = ({address, onLogin}) => {
                                 <div className="card-box">
                                     <div className="box-tab">
                                         <div className="box-menu" onClick={() => setcard1(false)}>
-                                            <div>
+                                            <div className="box-text-box">
                                                 <span className={classNames("menu-text", {'selected': !card1})}>티켓팅</span>
                                             </div>
                                         </div>
@@ -139,7 +139,7 @@ const Main = ({address, onLogin}) => {
                                     {!card1 ? 
                                         <Button 
                                             text="보내기" 
-                                            correct={ticket_in}
+                                            correct={ticket_in && team}
                                             onError={() => seterror(true)}/> :
                                         <Button 
                                             text="등록"
