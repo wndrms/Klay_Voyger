@@ -251,12 +251,14 @@ main {
                                     align-items: center;
                                     .popularity-title-text {
                                         width: auto;
+                                        flex: 1;
                                         span {
                                             @include sub-title;
                                         }
                                     }
                                     .popularity-title-sub {
                                         float:right;
+                                        margin-right: 0;
                                         span {
                                             @include notice-text;
                                             text-align: right;

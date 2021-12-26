@@ -8,7 +8,7 @@ const Button = ( props ) => {
     }
     return (
         <div className={classNames("btn-basic", {"correct" : props.correct})}
-            onClick={onClick}>
+            onClick={props.correct && onClick}>
             <span className="btn-text">{props.text}</span>
         </div>
     )
