@@ -16,14 +16,16 @@ const Main = ({address, onLogin}) => {
     const [team, setteam] = useState(0);
     const [ticket_in, setticket_in] = useState();
     const [user_name, setuser_name] = useState("");
-    const [user_ticket, setuser_ticket] = useState();
-    const [error, seterror] = useState(false);
+    const [user_ticket, setuser_ticket] = useState(0);
+    const [error1, seterror1] = useState(false);
+    const [error2, seterror2] = useState(false);
 
     useEffect( async() => {
         if (address){
             const myContract = new caver.klay.Contract(FoMo3D, '0x8DA93FC0B59BDd4d03A575e47254996f3B2f07A4');
             const Info = await myContract.call('getPlayerInfoByAddress', address)
             setuser_ticket(Info['2']/Math.pow(10, 18));
+            console.log(Info);
         }
     }, [address])
 
@@ -124,7 +126,7 @@ const Main = ({address, onLogin}) => {
                                                 onChange={value => setticket_in(value)}
                                                 symbol="TICKET"
                                                 padding="58px 10px 0 10px"
-                                                error={error}
+                                                error={error1}
                                                 errorMessage="소유한 티켓보다 많습니다."/> :
                                             <InputBox
                                                 title="이름 입력"
@@ -134,7 +136,7 @@ const Main = ({address, onLogin}) => {
                                                 input={user_name}
                                                 onChange={value => setuser_name(value)}
                                                 padding="58px 10px 0 10px"
-                                                error={error}
+                                                error={error2}
                                                 errorMessage="띄어쓰기가 한칸 이상입니다.\n
                                                 15자리가 넘었습니다.\n
                                                 등록 비용이 모자랍니다."/>                                                
@@ -190,13 +192,14 @@ const Main = ({address, onLogin}) => {
                                         <Button 
                                             text="보내기" 
                                             correct={address && ticket_in && team}
+                                            onCheck={check_name(user_name)}
                                             onClick={() => buyticket()}
-                                            onError={() => seterror(true)}/> :
+                                            onError={() => seterror1(true)}/> :
                                         <Button 
                                             text="등록"
                                             correct={address && user_name}
                                             onClick={() => register(user_name)}
-                                            onError={() => seterror(true)}/>
+                                            onError={() => seterror2(true)}/>
                                     }
                                 </div>
                             </div>

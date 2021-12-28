@@ -4,7 +4,11 @@ import './Button.scss';
 
 const Button = ( props ) => {
     const onClick = () => {
-        props.onClick();
+        if(props.onCheck) {
+            props.onClick();
+        } else {
+            props.onError();
+        }
     }
     return (
         <div className={classNames("btn-basic", {"correct" : props.correct})}
