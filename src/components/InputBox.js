@@ -6,18 +6,10 @@ const InputBox = (props) => {
     const [tmp, settmp] = useState(props.input);
     const [Focus, setFocus] = useState(false);
 
-    const convert = (message) => {
-        console.log(message);
-        let test = message.replaceAll('\\n', '\n');
-        console.log(test);
-        return test
-    }
     const onChange = event => {
         const {value} = event.target;
         settmp(value);
         props.onChange(value);
-        console.log(tmp);
-        console.log(convert(props.errorMessage));
     }
     const onFocus = event => setFocus(!Focus);
     return (
@@ -47,7 +39,7 @@ const InputBox = (props) => {
             </div>
             <div className="error-box">
                 {props.error && 
-                    <span>{convert(props.errorMessage)}</span>
+                    <span>{props.errorMessage.replaceAll('\\n', '\n')}</span>
                 }
             </div>
         </div>
