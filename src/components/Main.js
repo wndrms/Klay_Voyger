@@ -25,17 +25,15 @@ const Main = ({address, onLogin}) => {
             const myContract = new caver.klay.Contract(FoMo3D, '0x8DA93FC0B59BDd4d03A575e47254996f3B2f07A4');
             const Info = await myContract.call('getPlayerInfoByAddress', address)
             setuser_ticket(Info['2']/Math.pow(10, 18));
-            console.log(Info);
         }
     }, [address])
 
     const check_name = (name) => {
         var pattern_spc = /[~!@#$%^&*()_+|<>?:{}]/;
-
-        if(name.length > 15) return -1
-        else if (pattern_spc.test(name)) return -1
-        else if (name.search(/\s/) > 2) return -1
-        else return 0
+        if(name.length > 15) return false
+        else if (pattern_spc.test(name)) return false
+        else if (name.search(/\s/) > 2) return false
+        else return true
     }
 
     const buyticket = () => {
@@ -123,7 +121,10 @@ const Main = ({address, onLogin}) => {
                                                 type="number"
                                                 placeholder="0"
                                                 input={ticket_in}
-                                                onChange={value => setticket_in(value)}
+                                                onChange={value => {
+                                                    setticket_in(value);
+                                                    seterror1(false);
+                                                }}
                                                 symbol="TICKET"
                                                 padding="58px 10px 0 10px"
                                                 error={error1}
@@ -134,7 +135,10 @@ const Main = ({address, onLogin}) => {
                                                 type="text"
                                                 placeholder="사용자 이름"
                                                 input={user_name}
-                                                onChange={value => setuser_name(value)}
+                                                onChange={value => {
+                                                    setuser_name(value);
+                                                    seterror2(false);
+                                                }}
                                                 padding="58px 10px 0 10px"
                                                 error={error2}
                                                 errorMessage="띄어쓰기가 한칸 이상입니다.\n
@@ -191,13 +195,14 @@ const Main = ({address, onLogin}) => {
                                     {!card1 ? 
                                         <Button 
                                             text="보내기" 
-                                            correct={address && ticket_in && team}
-                                            onCheck={check_name(user_name)}
+                                            correct={address && ticket_in && team && !error1}
+                                            onCheck={() => ticket_in <= parseFloat(user_ticket)}
                                             onClick={() => buyticket()}
                                             onError={() => seterror1(true)}/> :
                                         <Button 
                                             text="등록"
-                                            correct={address && user_name}
+                                            correct={address && user_name && !error2}
+                                            onCheck={() => check_name(user_name)}
                                             onClick={() => register(user_name)}
                                             onError={() => seterror2(true)}/>
                                     }

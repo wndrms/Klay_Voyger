@@ -4,7 +4,7 @@ import './Button.scss';
 
 const Button = ( props ) => {
     const onClick = () => {
-        if(props.onCheck) {
+        if(props.onCheck()) {
             props.onClick();
         } else {
             props.onError();
@@ -12,7 +12,7 @@ const Button = ( props ) => {
     }
     return (
         <div className={classNames("btn-basic", {"correct" : props.correct})}
-            onClick={props.correct && onClick}>
+            onClick={props.correct ? onClick : undefined}>
             <span className="btn-text">{props.text}</span>
         </div>
     )
