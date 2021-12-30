@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ReactModal from "react-modal";
 import Header from "components/Header";
 import './Main.scss';
 import classNames from "classnames";
@@ -19,6 +20,7 @@ const Main = ({address, onLogin}) => {
     const [user_ticket, setuser_ticket] = useState(0);
     const [error1, seterror1] = useState(false);
     const [error2, seterror2] = useState(false);
+    const [help, sethelp] = useState(false);
 
     useEffect( async() => {
         if (address){
@@ -151,7 +153,7 @@ const Main = ({address, onLogin}) => {
                                                     <>
                                                         <span className="notice-text">동료 선택</span>
                                                         <div>
-                                                            <img src="img/icon-question@3x.png" alt="?" className="help"/>
+                                                            <img src="img/icon-question@3x.png" alt="?" className="help" onClick={() => sethelp(true)}/>
                                                         </div>
                                                     </> : 
                                                     <span className="notice-text">작명 유의사항</span>
@@ -317,6 +319,138 @@ const Main = ({address, onLogin}) => {
                     </section>
                 </section>
             </main>
+            <ReactModal isOpen={help} style={{
+                overlay: {
+                    zIndex:'2',
+                    backgroundColor:'rgba(0,0,0,0.3)'
+                },
+                content: {
+                    width: '620px',
+                    height: '620px',
+                    top: 'calc(54.8416% - 333.846px)',
+                    left: 'calc(50% - 310px)',
+                    backgroundColor: '#24303c',
+                    padding: '33px 70px 36px 70px',
+                    boxSizing: 'border-box',
+                    borderStyle: 'none'
+                }
+            }} preventScroll={true}>
+                <div className="Modal">
+                    <div className="Modal-Header">
+                        <div className="Modal-Header-title">
+                            <span>동료 소개</span>
+                        </div>
+                        <img src="/img/icon-exit@3x.png" alt="X" onClick={() => sethelp(false)}></img>
+                    </div>
+                    <div className="Modal-Content">
+                        <div className="Modal-Content-buddy">
+                            <div className="buddy-title">
+                                <img src="/img/icon-mom-default@3x.png" alt="mom"/>
+                                <div className="buddy-title-text">
+                                    엄마의 능력
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    티켓 구매 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    상금풀 30%, 피켓홀더 25%,<br/>
+                                    보이저 스테이커 40%, 팀 수익 5%
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    당첨 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    당첨자 50%, 피켓홀더 15%, 보이저<br/>
+                                    스테이커 25%, 다음 라운드 10%
+                                </div>
+                            </div>
+                        </div>
+                        <div className="Modal-Content-buddy">
+                            <div className="buddy-title">
+                                <img src="/img/icon-dad-default@3x.png" alt="dad"/>
+                                <div className="buddy-title-text">
+                                    아빠의 능력
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    티켓 구매 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    상금풀 30%, 피켓홀더 40%,<br/>
+                                    보이저 스테이커 25%, 팀 수익 5%
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    당첨 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    당첨자 50%, 피켓홀더 25%, 보이저<br/>
+                                    스테이커 15%, 다음 라운드 10%
+                                </div>
+                            </div>
+                        </div>
+                        <div className="Modal-Content-buddy">
+                            <div className="buddy-title">
+                                <img src="/img/icon-gf-default@3x.png" alt="gf"/>
+                                <div className="buddy-title-text">
+                                    여자친구의 능력
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    티켓 구매 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    상금풀 40%, 피켓홀더 40%,<br/>
+                                    보이저 스테이커 15%, 팀 수익 5%
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    당첨 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    당첨자 50%, 피켓홀더 30%, 보이저<br/>
+                                    스테이커 10%, 다음 라운드 10%
+                                </div>
+                            </div>
+                        </div>
+                        <div className="Modal-Content-buddy">
+                            <div className="buddy-title">
+                                <img src="/img/icon-dragon-default@3x.png" alt="dragon"/>
+                                <div className="buddy-title-text">
+                                    크롱이의 능력
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    티켓 구매 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    상금풀 40%, 피켓홀더 15%,<br/>
+                                    보이저 스테이커 40%, 팀 수익 5%
+                                </div>
+                            </div>
+                            <div className="buddy-detail">
+                                <div className="buddy-detail-title">
+                                    당첨 시 분배
+                                </div>
+                                <div className="buddy-detail-text">
+                                    당첨자 50%, 피켓홀더 10%, 보이저<br/>
+                                    스테이커 30%, 다음 라운드 10%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </ReactModal>
         </>
     )
 }
